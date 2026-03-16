@@ -1,0 +1,150 @@
+/* =============================================
+   CTA Section Styles
+   ============================================= */
+
+.cta-section {
+    position: relative;
+    width: 100%;
+    padding: var(--space-2xl) var(--space-md);
+    background: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.cta__container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(5, 5, 5, 0.5) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl) var(--space-xl);
+    text-align: center;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+/* Background grid effect for CTA */
+.cta__container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cta__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta__title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xl);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    line-height: 1.2;
+}
+
+.cta__button {
+    position: relative;
+    padding: 1.2rem 3rem;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    overflow: hidden;
+    transition: all var(--transition-medium);
+}
+
+.cta__button-text {
+    position: relative;
+    z-index: 2;
+}
+
+.cta__button-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.cta__button:hover {
+    color: var(--text-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--accent-blue-glow);
+}
+
+.cta__button:hover .cta__button-glow {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Decorative Accents */
+.cta__deco {
+    position: absolute;
+    background: var(--accent-blue);
+    opacity: 0.5;
+    box-shadow: 0 0 15px var(--accent-blue-glow);
+}
+
+.cta__deco--1 {
+    top: 20%;
+    left: 10%;
+    width: 60px;
+    height: 2px;
+}
+
+.cta__deco--2 {
+    bottom: 20%;
+    right: 10%;
+    width: 2px;
+    height: 60px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cta-section {
+        padding: var(--space-xl) var(--space-sm);
+    }
+
+    .cta__container {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .cta__button {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .cta__deco {
+        display: none;
+    }
+}

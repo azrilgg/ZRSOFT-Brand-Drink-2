@@ -1,0 +1,202 @@
+/* =============================================
+   Policy Section Styles (Returns, Shipping, Warranty)
+   ============================================= */
+
+.policy {
+    position: relative;
+    width: 100%;
+    padding: var(--space-2xl) var(--space-xl);
+    background: var(--bg-primary);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.policy::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(30, 144, 255, 0.05) 0%, transparent 60%);
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.policy__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.policy__header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.policy__label {
+    font-family: var(--font-heading);
+    color: var(--accent-blue);
+    font-size: var(--fs-small);
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+}
+
+.policy__title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: var(--fs-h2);
+    letter-spacing: 2px;
+    color: var(--text-primary);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.policy__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+/* --- Card Styles --- */
+
+.policy__card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: transform var(--transition-medium), border-color var(--transition-medium);
+}
+
+.policy__card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(30, 144, 255, 0.3);
+}
+
+.policy__card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(30, 144, 255, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.policy__card:hover .policy__card-glow {
+    opacity: 1;
+}
+
+/* --- Icons --- */
+
+.policy__icon-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 144, 255, 0.1);
+    border: 1px solid rgba(30, 144, 255, 0.2);
+    border-radius: 50%;
+    color: var(--accent-blue);
+    z-index: 1;
+}
+
+.policy__icon-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid var(--accent-blue);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.policy__card:hover .policy__icon-pulse {
+    width: 150%;
+    height: 150%;
+    opacity: 0;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* --- Content --- */
+
+.policy__card-title {
+    position: relative;
+    font-family: var(--font-heading);
+    font-size: var(--fs-h4);
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    z-index: 1;
+}
+
+.policy__card-desc {
+    position: relative;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    z-index: 1;
+}
+
+.policy__card-line {
+    width: 0;
+    height: 2px;
+    background: var(--accent-blue);
+    margin: var(--space-md) auto 0;
+    transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 0 10px var(--accent-blue);
+    z-index: 1;
+    position: relative;
+}
+
+.policy__card:hover .policy__card-line {
+    width: 50px;
+}
+
+/* --- Responsive Layout --- */
+
+@media (max-width: 1024px) {
+    .policy__grid {
+        gap: var(--space-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .policy__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .policy {
+        padding: var(--space-xl) var(--space-md);
+    }
+}

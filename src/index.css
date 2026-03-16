@@ -1,0 +1,139 @@
+/* =============================================
+   ZRSOFT — Design System & Global Styles
+   ============================================= */
+
+/* --- Design Tokens --- */
+:root {
+  /* Colors */
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #0d0d0d;
+  --bg-card-hover: #141414;
+  --text-primary: #ffffff;
+  --text-secondary: #999999;
+  --text-muted: #555555;
+  --text-hidden: #111111;
+  --accent-blue: #1e90ff;
+  --accent-blue-glow: rgba(30, 144, 255, 0.4);
+  --accent-blue-deep: #0a4f8a;
+  --accent-gold: #c5a55a;
+  --accent-gold-glow: rgba(197, 165, 90, 0.3);
+  --accent-cobalt: #1a3a6a;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg-active: rgba(255, 255, 255, 0.08);
+  --glass-border-active: rgba(255, 255, 255, 0.15);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+
+  /* Typography */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --fs-hero: clamp(2.2rem, 5vw, 5rem);
+  --fs-h1: clamp(2rem, 4vw, 4rem);
+  --fs-h2: clamp(1.5rem, 3vw, 3rem);
+  --fs-h3: clamp(1.2rem, 2vw, 1.8rem);
+  --fs-body: clamp(0.9rem, 1.2vw, 1.1rem);
+  --fs-small: clamp(0.75rem, 1vw, 0.9rem);
+  --fs-menu: clamp(1.5rem, 3vw, 2.5rem);
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+  --space-2xl: 10rem;
+
+  /* Borders & Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-fast: 0.2s var(--ease-smooth);
+  --transition-medium: 0.4s var(--ease-smooth);
+  --transition-slow: 0.6s var(--ease-smooth);
+}
+
+/* --- Global Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  background: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* --- Utility Classes --- */
+.section-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-blue-deep);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+}
+
+/* --- Selection --- */
+::selection {
+  background: var(--accent-blue);
+  color: var(--text-primary);
+}
